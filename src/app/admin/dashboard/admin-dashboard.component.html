@@ -1,0 +1,33 @@
+<div class="admin-container">
+  <h1>Admin Dashboard</h1>
+  <h2>Car List</h2>
+
+  <table *ngIf="cars.length > 0; else noCars">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Car Name</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td>{{ car.name }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>{{ car.available ? 'Yes' : 'No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noCars>
+    <p>No cars found.</p>
+  </ng-template>
+
+  <button (click)="logout()">Logout</button>
+</div>

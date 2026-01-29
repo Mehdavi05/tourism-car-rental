@@ -1,0 +1,37 @@
+<div class="customer-dashboard">
+  <h1>Customer Dashboard</h1>
+  <h2>Available Cars</h2>
+
+  <table class="car-table" *ngIf="cars.length > 0; else noCars">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Price/Day</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars" [class.booked]="!car.available">
+        <td>{{ car.name }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>{{ car.available ? 'Available' : 'Booked' }}</td>
+        <td>
+          <button [disabled]="!car.available" (click)="bookCar(car)">Book</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noCars>
+    <p>No cars available at the moment.</p>
+  </ng-template>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
+  
+  <button class="logout-button" (click)="logout()">Logout</button>
+</div>
