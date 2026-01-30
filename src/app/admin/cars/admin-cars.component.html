@@ -1,35 +1,82 @@
-<div *ngIf="loading" class="loading">
-  Loading cars, please wait...
-</div>
+<div class="admin-container">
 
-<div *ngIf="!loading">
-  <h2>Car List</h2>
-  <table *ngIf="cars.length > 0; else noCars" class="car-table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Car Name</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Category</th>
-        <th>Price/Day</th>
-        <th>Available</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let car of cars">
-        <td>{{ car.carId }}</td>
-        <td>{{ car.name }}</td>
-        <td>{{ car.brand }}</td>
-        <td>{{ car.model }}</td>
-        <td>{{ car.category }}</td>
-        <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    Loading cars, please wait...
+  </div>
 
-  <ng-template #noCars>
-    <p>No cars available.</p>
-  </ng-template>
+  <div *ngIf="!loading">
+
+    <!-- Header + Add Car Button -->
+    <div class="header-actions">
+      <h2>Car List</h2>
+      <button class="add-car-btn" (click)="openAddCarModal()">➕ Add Car</button>
+    </div>
+
+    <!-- Cars Table -->
+    <table *ngIf="cars.length > 0; else noCars" class="car-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Car Name</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Category</th>
+          <th>Price/Day</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td>{{ car.carId }}</td>
+          <td>{{ car.name }}</td>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.category }}</td>
+          <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- No Cars Template -->
+    <ng-template #noCars>
+      <p>No cars available.</p>
+    </ng-template>
+
+    <!-- Add Car Modal -->
+    <div class="modal" *ngIf="showAddCarModal">
+      <div class="modal-content">
+        <h3>Add New Car</h3>
+        <form [formGroup]="addCarForm" (ngSubmit)="submitAddCar()">
+
+          <label>Car Name:</label>
+          <input type="text" formControlName="name" placeholder="Enter car name" />
+
+          <label>Brand:</label>
+          <input type="text" formControlName="brand" placeholder="Enter brand" />
+
+          <label>Model:</label>
+          <input type="text" formControlName="model" placeholder="Enter model" />
+
+          <label>Category:</label>
+          <input type="text" formControlName="category" placeholder="Enter category" />
+
+          <label>Price/Day:</label>
+          <input type="number" formControlName="pricePerDay" placeholder="Enter price per day" />
+
+          <label>
+            <input type="checkbox" formControlName="isAvailable" /> Available
+          </label>
+
+          <div class="modal-actions">
+            <button type="submit" [disabled]="addCarForm.invalid">Add Car</button>
+            <button type="button" (click)="closeAddCarModal()">Cancel</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
 </div>
