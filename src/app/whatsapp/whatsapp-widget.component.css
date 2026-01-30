@@ -154,28 +154,37 @@
   display: flex;
   flex-direction: column;
   padding: 8px;
-  gap: 8px; /* space between cells */
+  gap: 12px; /* space between cells */
 }
 
+/* GREEN BACKGROUND */
+.contact-bg {
+  background-color: #25d366; /* green strip behind the cell */
+  border-radius: 10px;
+  padding-left: 6px; /* leaves green visible on the left */
+  position: relative;
+}
+
+/* CELL ITSELF */
 .contact {
   display: flex;
   align-items: center;
   cursor: pointer;
   padding: 10px 14px;
   border-radius: 8px;
+  background-color: #f0f0f0; /* gray/light cell */
   transition: background-color 0.2s ease;
-  position: relative;
-  background-color: #f0f0f0; /* slightly darker cell */
+  margin-left: 0.1px; /* shift cell slightly right to show green on left */
 }
 
 .contact:hover {
   background-color: #e0e0e0;
 }
 
-/* GREEN LINE ON THE LEFT */
+/* GREEN LINE ON THE LEFT OF CELL CONTENT */
 .contact .line {
-  width: 6px; /* slightly thicker */
-  background-color: #28a745; /* brighter green */
+  width: 6px;
+  background-color: #28a745; /* bright green */
   height: 100%;
   border-radius: 4px;
   margin-right: 10px;
@@ -194,6 +203,6 @@
 
 .contact-role {
   font-size: 12px;
-  color: #999999; /* faint gray */
+  color: #999999;
   margin-top: 2px;
 }
