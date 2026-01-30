@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AdminComponent } from './admin.component';
+import { AdminDashboardComponent } from './dashboard/admin-dashboard.component';
 import { DashboardComponent } from './dashboard.component';
 import { CarsComponent } from './cars.component';
 import { BookingsComponent } from './bookings.component';
@@ -7,9 +7,9 @@ import { BookingsComponent } from './bookings.component';
 export default [
   {
     path: '',
-    component: AdminComponent,
+    component: AdminDashboardComponent,
     children: [
-      { path: '', component: DashboardComponent },
+      { path: 'admin', component: DashboardComponent },
       { path: 'cars', component: CarsComponent },
       { path: 'bookings', component: BookingsComponent }
     ]

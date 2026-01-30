@@ -1,0 +1,41 @@
+<!-- Top moving message bar -->
+<div class="top-message">
+  <div class="marquee">
+    <span>
+      Welcome to Bangash Tourism! &nbsp;&nbsp;&nbsp; New discounts available! &nbsp;&nbsp;&nbsp; Book your ride today!
+    </span>
+    <span>
+      Welcome to Bangash Tourism! &nbsp;&nbsp;&nbsp; New discounts available! &nbsp;&nbsp;&nbsp; Book your ride today!
+    </span>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<header class="top-nav">
+  <div class="nav-left">
+    <div class="logo">
+      <img src="/assets/images/business-logo.png" alt="Company Logo" height="80"/>
+    </div>
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        <li><a routerLink="/customer/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/customer/cars" routerLinkActive="active">Cars</a></li>
+        <li><a routerLink="/customer/booking" routerLinkActive="active">Bookings</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a routerLink="/customer/contact" routerLinkActive="active">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Main content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<app-footer></app-footer>

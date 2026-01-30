@@ -1,0 +1,37 @@
+<div *ngIf="loading" class="loading">
+  Loading cars, please wait...
+</div>
+
+<div *ngIf="!loading">
+  <h2>Car List</h2>
+  <table *ngIf="cars.length > 0; else noCars" class="car-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Car Name</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Category</th>
+        <th>Price/Day</th>
+        <th>Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.carId }}</td>
+        <td>{{ car.name }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.category }}</td>
+        <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noCars>
+    <p>No cars available.</p>
+  </ng-template>
+
+  <button (click)="logout()" class="logout-button">Logout</button>
+</div>

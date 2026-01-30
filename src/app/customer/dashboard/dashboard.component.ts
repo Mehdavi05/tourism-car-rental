@@ -2,28 +2,31 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';   // ngModel, ngForm
+import { FooterComponent } from '../../footer/footer.component';
+
 @Component({
-  selector: 'app-admin-dashboard',
+  selector: 'app-customer-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css'],
+  imports: [CommonModule, RouterModule, FormsModule, FooterComponent],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
 })
-export class AdminDashboardComponent {
-  activeMenu: string = 'overview';
+export class DashboardComponent {
+  activeMenu: string = 'home';
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = event.urlAfterRedirects.split('/').pop();
-        this.activeMenu = currentRoute || 'overview';
+        this.activeMenu = currentRoute || 'home';
       }
     });
   }
 
   navigate(menu: string) {
     this.activeMenu = menu;
-    this.router.navigate([`/admin/${menu}`]);
+    this.router.navigate([`/customer/${menu}`]);
   }
 
   logout() {

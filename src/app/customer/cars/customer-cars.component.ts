@@ -8,13 +8,13 @@ import { BookingsService } from '../../services/bookings.service';
 import { AuthService } from '../../core/auth.service';
 
 @Component({
-  selector: 'app-customer-dashboard',
+  selector: 'app-customer-cars',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './customer-dashboard.component.html',
-  styleUrls: ['./customer-dashboard.component.css']
+  templateUrl: './customer-cars.component.html',
+  styleUrls: ['./customer-cars.component.css']
 })
-export class CustomerDashboardComponent implements OnInit {
+export class CustomerCarsComponent implements OnInit {
 
   cars: Car[] = [];
   message: string = '';

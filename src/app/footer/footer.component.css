@@ -1,0 +1,36 @@
+.footer {
+  background-color: #003366;
+  color: white;
+  padding: 15px 20px;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+:host {
+  display: flex;
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+  width: 100%;
+  background-color: #004080; /* Optional: match nav bar */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;        /* Fallback for text inside */
+}

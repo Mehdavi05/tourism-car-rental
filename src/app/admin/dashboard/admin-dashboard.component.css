@@ -1,42 +1,77 @@
-.admin-container { 
-  padding: 20px; 
-  font-family: Arial, sans-serif; 
-}
-
-.loading {
-  font-size: 1.2rem;
+.top-message {
+  background-color: #004080;
+  color: #fff;
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
   font-weight: bold;
-  color: #007bff;
-  text-align: center;
-  margin-top: 2rem;
+  font-size: 16px;
+  position: relative;
 }
 
-.car-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
 }
 
-.car-table th, .car-table td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: center;
+.marquee span {
+  white-space: nowrap;
+  padding-right: 50px; /* space between repetitions */
 }
 
-.car-table th {
-  background-color: #007bff;
-  color: white;
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move by half because we duplicated the text */
 }
 
-.logout-button {
-  margin-top: 1.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
+
+/* Main Navigation */
+.top-nav {
+  display: flex;
+  justify-content: space-between; /* left nav & right logout */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #00264d; /* navigation bar color */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* space between logo and nav items */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: #fff;
   border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.logout-button:hover {
-  background-color: #0056b3;
+.logout-btn:hover {
+  background-color: #e60000;
 }

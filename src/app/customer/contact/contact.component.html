@@ -1,0 +1,22 @@
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <form (ngSubmit)="submitContact()" #form="ngForm">
+    <label>
+      Name:
+      <input type="text" name="name" [(ngModel)]="contact.name" required>
+    </label>
+    <label>
+      Email:
+      <input type="email" name="email" [(ngModel)]="contact.email" required>
+    </label>
+    <label>
+      Message:
+      <textarea name="message" [(ngModel)]="contact.message" required></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+
+  <div *ngIf="submitted" class="success-message">
+    Your message has been sent!
+  </div>
+</section>

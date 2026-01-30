@@ -1,0 +1,36 @@
+<section class="booking-form">
+  <h2>Book Your Ride</h2>
+  <form (ngSubmit)="submitBooking()" #form="ngForm">
+    <label>
+      Full Name:
+      <input type="text" name="name" [(ngModel)]="booking.name" required>
+    </label>
+    <label>
+      Email:
+      <input type="email" name="email" [(ngModel)]="booking.email" required>
+    </label>
+    <label>
+      Phone:
+      <input type="text" name="phone" [(ngModel)]="booking.phone" required>
+    </label>
+    <label>
+      Car:
+      <select name="car" [(ngModel)]="booking.car" required>
+        <option *ngFor="let car of cars" [value]="car.name">{{car.name}}</option>
+      </select>
+    </label>
+    <label>
+      Start Date:
+      <input type="date" name="startDate" [(ngModel)]="booking.startDate" required>
+    </label>
+    <label>
+      End Date:
+      <input type="date" name="endDate" [(ngModel)]="booking.endDate" required>
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="submitted" class="success-message">
+    Your booking has been submitted successfully!
+  </div>
+</section>

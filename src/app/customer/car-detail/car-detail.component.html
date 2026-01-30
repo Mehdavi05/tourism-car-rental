@@ -1,0 +1,7 @@
+<section class="car-detail">
+  <h2>{{car.name}}</h2>
+  <img [src]="car.image" [alt]="car.name">
+  <p>Price per day: {{car.pricePerDay}}</p>
+  <p>Description: {{car.description}}</p>
+  <a routerLink="/customer/bookings" class="btn">Book Now</a>
+</section>

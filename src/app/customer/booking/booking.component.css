@@ -1,0 +1,5 @@
+.booking-form { max-width: 500px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+.booking-form label { display: block; margin-bottom: 10px; font-weight: bold; }
+.booking-form input, .booking-form select { width: 100%; padding: 8px; margin-top: 4px; margin-bottom: 12px; }
+.booking-form button { padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.success-message { margin-top: 20px; color: green; font-weight: bold; text-align: center; }
