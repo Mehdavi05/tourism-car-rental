@@ -146,3 +146,54 @@
   line-height: 1.4;
   text-align: center; /* center the subtext as well */
 }
+
+/* =======================
+   CONTACTS LIST
+======================= */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px; /* space between cells */
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  position: relative;
+  background-color: #f0f0f0; /* slightly darker cell */
+}
+
+.contact:hover {
+  background-color: #e0e0e0;
+}
+
+/* GREEN LINE ON THE LEFT */
+.contact .line {
+  width: 6px; /* slightly thicker */
+  background-color: #28a745; /* brighter green */
+  height: 100%;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* CONTACT INFO */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.contact-role {
+  font-size: 12px;
+  color: #999999; /* faint gray */
+  margin-top: 2px;
+}
