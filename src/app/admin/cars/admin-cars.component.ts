@@ -34,9 +34,4 @@ export class AdminCarsComponent implements OnInit {
       }
     });
   }
-
-  logout() {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  }
 }

@@ -1,0 +1,31 @@
+<div class="whatsapp-widget">
+
+  <!-- OPTIONS PANEL -->
+  <div class="options" [class.active]="showOptions">
+
+    <!-- HEADER -->
+    <div class="options-header">
+      <h3>Start a Conversation</h3>
+      <p>Hi! Click one of our members below to chat on WhatsApp</p>
+    </div>
+
+    <!-- OPTIONS LIST -->
+    <div class="option" (click)="openChat('971553994575')">
+      🏝 Mr. Shujaat Hussain
+    </div>
+    <div class="option" (click)="openChat('971565925541')">
+      🚗 Mr. Hadi Hussain
+    </div>
+  </div>
+
+  <!-- BUTTON -->
+  <div
+    class="whatsapp-button"
+    [class.active]="showOptions"
+    (click)="toggle()"
+  >
+    <img class="icon whatsapp" src="/assets/images/whatsapp.svg" alt="WhatsApp" />
+    <span class="icon close">✕</span>
+  </div>
+
+</div>

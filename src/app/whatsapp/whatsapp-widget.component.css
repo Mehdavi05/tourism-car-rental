@@ -1,0 +1,148 @@
+/* WIDGET CONTAINER */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 130px;
+  right: 30px;
+  z-index: 10000;
+}
+
+/* BUTTON */
+.whatsapp-button {
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+.whatsapp-button.active {
+  transform: rotate(180deg);
+  background-color: #1ebe5d;
+}
+
+/* ICONS */
+.icon.whatsapp {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.icon.close {
+  font-size: 26px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-180deg);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.4s ease;
+}
+
+.whatsapp-button.active .icon.whatsapp {
+  opacity: 0;
+}
+
+.whatsapp-button.active .icon.close {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* OPTIONS PANEL */
+.options {
+  position: absolute;
+  bottom: 100%; /* appear above the button */
+  right: 0; /* align to button right */
+  width: 260px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0;
+  z-index: 9999;
+}
+
+/* SHOW OPTIONS */
+.options.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* HEADER */
+.options-header {
+  background-color: #25d366;
+  color: white;
+  padding: 12px;
+  border-radius: 12px 12px 0 0;
+  text-align: left;
+}
+
+.options-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.options-header p {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* OPTION ITEMS */
+.option {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.option:hover {
+  background-color: #f4f4f4;
+}
+
+/* ARROW */
+.options::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+}
+
+.options-header {
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  padding: 12px;
+  border-radius: 12px 12px 0 0; /* rounded top corners */
+  text-align: center; /* center the text horizontally */
+}
+
+.options-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.options-header p {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center; /* center the subtext as well */
+}

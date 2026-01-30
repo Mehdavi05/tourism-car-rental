@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';   // ngModel, ngForm
 import { FooterComponent } from '../../footer/footer.component';
+import { WhatsappWidgetComponent } from '../../whatsapp/whatsapp-widget.component';
 
 @Component({
   selector: 'app-customer-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, FooterComponent],
+  imports: [CommonModule, RouterModule, FormsModule, FooterComponent, WhatsappWidgetComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
