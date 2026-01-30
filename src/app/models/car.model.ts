@@ -1,8 +1,13 @@
 export interface Car {
-  id: number;
+  carId: number;
   name: string;
   brand: string;
   model: string;
+  category?: string;
   pricePerDay: number;
-  available: boolean;
+  isAvailable: boolean;
+  description?: string;
+  imageUrl?: string;
+  createdAt: string;
 }
+

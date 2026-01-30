@@ -1,0 +1,94 @@
+/* Remove default body margin/padding globally */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Full-screen container with background + gradient overlay */
+.login-container {
+  height: 100vh; /* full viewport height */
+  width: 100vw;  /* full viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('/assets/images/background.jpg');
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Login card styling */
+.login-card {
+  background: #ffffff; /* semi-transparent */
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 450px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.login-card label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #555;
+  text-align: left;
+}
+
+.login-card input,
+.login-card select {
+  width: 100%;
+  padding: 0.55rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 0.65rem;
+  background-color: #004aad; /* premium blue */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #00337a;
+}
+
+.login-card .error {
+  margin-top: 1rem;
+  color: #d8000c;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 1.5rem auto; /* center horizontally + spacing below */
+  width: 200px;               /* adjust size */
+  height: auto;
+  object-fit: contain;        /* maintain aspect ratio */
+  background: transparent;    /* ensure no background */
+}

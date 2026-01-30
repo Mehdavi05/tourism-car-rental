@@ -8,30 +8,35 @@ import { AuthService } from '../core/auth.service';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username = '';
-  role = 'Customer';
-  error = '';
+  email: string = '';
+  password: string = '';
+  role: 'Customer' | 'Admin' = 'Customer';
+  error: string = '';
 
-  constructor(
-    private auth: AuthService,
-    private router: Router
-  ) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
-  login() {
-    this.auth.login(this.username, this.role).subscribe({
-      next: (res) => {
+  login(): void {
+    this.error = '';
+
+    if (this.role === 'Customer') {
+      // Directly navigate customer
+      this.router.navigate(['/customer']);
+      return;
+    }
+
+    // Admin login via API
+    this.auth.login(this.email, this.password).subscribe({
+      next: res => {
         localStorage.setItem('token', res.token);
-
-        // Redirect based on role
-        this.router.navigate([
-          this.role === 'Admin' ? '/admin' : '/customer'
-        ]);
+        this.router.navigate(['/admin']);
       },
-      error: () => {
-        this.error = 'Invalid login';
+      error: err => {
+        console.error(err);
+        this.error = 'Invalid login or you are not an admin.';
       }
     });
   }

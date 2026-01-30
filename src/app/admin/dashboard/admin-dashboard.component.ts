@@ -10,8 +10,10 @@ import { CarsService } from '../../services/cars.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
+
 export class AdminDashboardComponent implements OnInit {
   cars: Car[] = [];
+  loading: boolean = true;  
 
   constructor(private carsService: CarsService) {}
 
@@ -19,10 +21,17 @@ export class AdminDashboardComponent implements OnInit {
     this.loadCars();
   }
 
-  loadCars() {
+  loadCars(): void {
+    this.loading = true;
     this.carsService.getCars().subscribe({
-      next: data => this.cars = data,
-      error: err => console.error(err)
+      next: data => {
+        this.cars = data;
+        this.loading = false;
+      },
+      error: err => {
+        console.error(err);
+        this.loading = false;
+      }
     });
   }
 

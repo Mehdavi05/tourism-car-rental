@@ -1,6 +1,7 @@
 <div class="customer-dashboard">
-  <h1>Customer Dashboard</h1>
   <h2>Available Cars</h2>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
 
   <table class="car-table" *ngIf="cars.length > 0; else noCars">
     <thead>
@@ -14,14 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of cars" [class.booked]="!car.available">
+      <tr *ngFor="let car of cars" [class.booked]="!car.isAvailable">
         <td>{{ car.name }}</td>
         <td>{{ car.brand }}</td>
         <td>{{ car.model }}</td>
         <td>{{ car.pricePerDay | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td>{{ car.available ? 'Available' : 'Booked' }}</td>
+        <td>{{ car.isAvailable ? 'Available' : 'Booked' }}</td>
         <td>
-          <button [disabled]="!car.available" (click)="bookCar(car)">Book</button>
+          <button [disabled]="!car.isAvailable" (click)="openBookingModal(car)">Book</button>
         </td>
       </tr>
     </tbody>
@@ -31,7 +32,33 @@
     <p>No cars available at the moment.</p>
   </ng-template>
 
-  <p *ngIf="message" class="message">{{ message }}</p>
-  
-  <button class="logout-button" (click)="logout()">Logout</button>
+  <!-- Booking Modal -->
+  <div class="modal" *ngIf="showBookingModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeBookingModal()">&times;</span>
+      <h3>Booking Form for {{ selectedCar?.name }}</h3>
+
+      <form (ngSubmit)="submitBooking()">
+        <label>Pickup Date:</label>
+        <input type="date" [(ngModel)]="bookingForm.pickupDate" name="pickupDate" required />
+
+        <label>Dropoff Date:</label>
+        <input type="date" [(ngModel)]="bookingForm.dropoffDate" name="dropoffDate" required />
+
+        <label>Phone:</label>
+        <input type="text" [(ngModel)]="bookingForm.customerPhone" name="customerPhone" />
+
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="bookingForm.customerEmail" name="customerEmail" />
+
+        <label>Nationality:</label>
+        <input type="text" [(ngModel)]="bookingForm.nationality" name="nationality" />
+
+        <label>Notes:</label>
+        <textarea [(ngModel)]="bookingForm.notes" name="notes"></textarea>
+
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
 </div>
