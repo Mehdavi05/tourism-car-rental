@@ -1,60 +1,65 @@
 <div class="contact-form-container">
   <form #form="ngForm" (ngSubmit)="submitContact(form)" novalidate>
-    <div>
-      <label for="name">Name</label>
+
+    <div class="form-group">
       <input
         type="text"
         id="name"
         name="name"
         [(ngModel)]="contact.name"
         #name="ngModel"
+        placeholder=" "
         required
       />
+      <label for="name">Name</label>
       <small class="error" *ngIf="name.invalid && name.touched">
         Name is required
       </small>
     </div>
 
-    <div>
-      <label for="email">Email</label>
+    <div class="form-group">
       <input
         type="email"
         id="email"
         name="email"
         [(ngModel)]="contact.email"
         #email="ngModel"
+        placeholder=" "
         required
       />
+      <label for="email">Email</label>
       <small class="error" *ngIf="email.invalid && email.touched">
         Enter a valid email
       </small>
     </div>
 
-    <div>
-      <label for="phone">Phone</label>
+    <div class="form-group">
       <input
         type="text"
         id="phone"
         name="phone"
         [(ngModel)]="contact.phone"
+        placeholder=" "
       />
+      <label for="phone">Phone</label>
     </div>
 
-    <div>
-      <label for="message">Message</label>
+    <div class="form-group">
       <textarea
         id="message"
         name="message"
         [(ngModel)]="contact.message"
         #message="ngModel"
+        placeholder=" "
         required
       ></textarea>
+      <label for="message">Message</label>
       <small class="error" *ngIf="message.invalid && message.touched">
         Message is required
       </small>
     </div>
 
-    <button type="submit">Send</button>
+    <button type="submit">Send Message</button>
   </form>
 
   <div class="success-message" *ngIf="successMessage">
