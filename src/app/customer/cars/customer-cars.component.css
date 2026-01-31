@@ -12,7 +12,7 @@
   text-align: center; 
 }
 
-.car-table th { 
+.car-table th, .car-table tr { 
   background-color: #007bff;  
   color: white;
 }

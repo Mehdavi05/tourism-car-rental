@@ -13,9 +13,6 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-image: url('/assets/images/background.jpg');
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-position: center center;

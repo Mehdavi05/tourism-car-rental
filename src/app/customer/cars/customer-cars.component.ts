@@ -5,7 +5,7 @@ import { Car } from '../../models/car.model';
 import { Booking } from '../../models/booking.model';
 import { CarsService } from '../../services/cars.service';
 import { BookingsService } from '../../services/bookings.service';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-customer-cars',
