@@ -16,6 +16,10 @@ html, body {
   100% {background-position: 0% 50%;}
 }
 
+* {
+  box-sizing: border-box;
+}
+
 main {
   flex: 1;
 }

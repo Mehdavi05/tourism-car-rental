@@ -2,15 +2,16 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: #007bff;
 }
 
-th, td {
+th, td, tr {
   border: 1px solid #ddd;
   padding: 12px 8px;
   text-align: left;
 }
 
-th {
-  background-color: #1e88e5;
-  color: #fff;
+th, tr {
+  background-color: #007bff;
+  color: white;
 }

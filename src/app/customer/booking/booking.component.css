@@ -1,5 +1,63 @@
-.booking-form { max-width: 500px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-.booking-form label { display: block; margin-bottom: 10px; font-weight: bold; }
-.booking-form input, .booking-form select { width: 100%; padding: 8px; margin-top: 4px; margin-bottom: 12px; }
-.booking-form button { padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 4px; cursor: pointer; }
-.success-message { margin-top: 20px; color: green; font-weight: bold; text-align: center; }
+.booking-form { 
+  max-width: 500px; 
+  margin: 40px auto; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  background-color: #007bff; 
+  box-sizing: border-box;
+}
+
+/* Ensure everything calculates width correctly */
+.booking-form *,
+.booking-form *::before,
+.booking-form *::after {
+  box-sizing: border-box;
+}
+
+.booking-form h2,
+.booking-form label,
+.booking-form input,
+.booking-form select,
+.booking-form button {
+  color: white;
+}
+
+.booking-form label { 
+  display: block; 
+  margin-bottom: 6px; 
+  font-weight: bold; 
+}
+
+.booking-form input,
+.booking-form select { 
+  width: 100%; 
+  padding: 10px 12px;  /* equal left & right */
+  margin-top: 4px; 
+  margin-bottom: 14px; 
+  border-radius: 4px;
+  border: none;
+}
+
+/* Button */
+.booking-form button { 
+  padding: 12px 20px; 
+  background-color: #25d366; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  width: 100%;
+}
+
+.booking-form button:hover {
+  background-color: #1ebe5d;
+}
+
+/* Success message */
+.success-message { 
+  margin-top: 20px; 
+  color: #c8ffc8; 
+  font-weight: bold; 
+  text-align: center; 
+}

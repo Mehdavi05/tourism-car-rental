@@ -24,7 +24,7 @@ export class LoginComponent {
 
     if (this.role === 'Customer') {
       // Directly navigate customer
-      this.router.navigate(['/customer/cars']);
+      this.router.navigate(['/customer/home']);
       return;
     }
 
