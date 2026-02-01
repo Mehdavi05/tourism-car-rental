@@ -6,7 +6,8 @@ html, body {
 }
 
 .main-content, .login-container{
-  background: linear-gradient(135deg, #cce0ff, #004080);
+  /*background: linear-gradient(135deg, #cce0ff, #004080);*/
+  background: white;
   animation: gradientAnimation 15s ease infinite;
 }
 

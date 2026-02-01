@@ -8,7 +8,7 @@ import { LoginComponent } from './auth/login.component';
 import { AdminDashboardComponent } from './admin/dashboard/admin-dashboard.component';
 import { AdminCarsComponent } from './admin/cars/admin-cars.component';
 import { AdminOverviewComponent } from './admin/overview/admin-overview.component';
-import { AdminToursComponent } from './admin/tours/admin-tours.component';
+import { AdminTourPackagesComponent } from './admin/tours/admin-tour-packages.component';
 import { AdminBookingsComponent } from './admin/bookings/admin-bookings.component';
 import { AdminCustomersComponent } from './admin/customers/admin-customers.component';
 import { AdminReportsComponent } from './admin/reports/admin-reports.component';
@@ -21,6 +21,7 @@ import { ContactComponent } from './customer/contact/contact.component';
 import { BookingComponent } from './customer/booking/booking.component'; 
 import { HomeComponent } from './customer/home/home.component'; 
 import { CarDetailComponent } from './customer/car-detail/car-detail.component';
+import { TourPackagesComponent } from './customer/tour-packages/tour-packages.component';
 
 export const routes: Routes = [
 
@@ -34,7 +35,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: AdminOverviewComponent },
       { path: 'cars', component: AdminCarsComponent },
-      { path: 'tours', component: AdminToursComponent },
+      { path: 'tours', component: AdminTourPackagesComponent },
       { path: 'bookings', component: AdminBookingsComponent },
       { path: 'customers', component: AdminCustomersComponent },
       { path: 'reports', component: AdminReportsComponent },
@@ -50,6 +51,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'cars', component: CustomerCarsComponent },
       { path: 'cars/:id', component: CarDetailComponent },
+      { path: 'tours', component: TourPackagesComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'contact', component: ContactComponent }
     ]

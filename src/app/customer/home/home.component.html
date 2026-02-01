@@ -1,17 +1,49 @@
-<section class="hero">
-  <h1>Welcome to Bangash Tourism</h1>
-  <p>Your journey begins here. Rent your ride today!</p>
-  <a routerLink="/customer/cars" class="btn">View Cars</a>
-</section>
-
-<section class="featured-cars">
-  <h2>Featured Cars</h2>
-  <div class="car-list">
-    <div class="car-card" *ngFor="let car of featuredCars">
-      <img [src]="car.image" [alt]="car.name">
-      <h3>{{car.name}}</h3>
-      <p>{{car.pricePerDay}} per day</p>
-      <a [routerLink]="['/customer/cars', car.id]" class="btn">View Details</a>
+<div class="home-container">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Luxury Car Rental in Dubai</h1>
+      <p>Drive premium & exotic cars at unbeatable prices</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Book Now</button>
+        <button class="btn-outline">Browse Cars</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- SEARCH / BOOKING STRIP -->
+  <section class="booking-strip">
+    <div class="booking-box">
+      <input type="text" placeholder="Pick-up Location">
+      <input type="date">
+      <input type="date">
+      <button>Search</button>
+    </div>
+  </section>
+
+  <!-- FEATURED CARS -->
+  <section class="featured">
+    <h2>Featured Cars</h2>
+
+    <div class="car-grid">
+      <div class="car-card" *ngFor="let car of featuredCars">
+        <img [src]="car.image" [alt]="car.name">
+
+        <div class="car-info">
+          <h3>{{ car.name }}</h3>
+          <p class="category">{{ car.category }}</p>
+
+          <div class="price">
+            AED {{ car.pricePerDay }} <span>/ day</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-primary">Book Now</button>
+            <button class="btn-secondary">WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

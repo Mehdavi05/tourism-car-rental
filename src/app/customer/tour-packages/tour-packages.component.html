@@ -1,0 +1,54 @@
+<div class="tour-hero">
+  <div class="hero-content">
+    <h1>Explore Dubai with Our Tour Packages</h1>
+    <p>Discover the best experiences, from city tours to desert adventures.</p>
+  </div>
+</div>
+
+<div class="tour-container">
+  <div class="tour-card" *ngFor="let tour of packages">
+    <div class="tour-image">
+      <img [src]="tour.image" [alt]="tour.title">
+      <span class="status" [class.booked]="!tour.isAvailable">
+        {{ tour.isAvailable ? 'Available' : 'Booked' }}
+      </span>
+    </div>
+    <div class="tour-details">
+      <h3>{{ tour.title }}</h3>
+      <p>{{ tour.description }}</p>
+      <p><strong>Duration:</strong> {{ tour.duration }}</p>
+      <p><strong>Price:</strong> AED {{ tour.price }}</p>
+      <button [disabled]="!tour.isAvailable" (click)="openBookingModal(tour)">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal" *ngIf="showBookingModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeBookingModal()">&times;</span>
+    <h3>Booking Form for {{ selectedTour?.title }}</h3>
+
+    <form (ngSubmit)="submitBooking()">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="bookingForm.customerName" name="customerName" required />
+
+      <label>Date:</label>
+      <input type="date" [(ngModel)]="bookingForm.date" name="date" required />
+
+      <label>Phone:</label>
+      <input type="text" [(ngModel)]="bookingForm.customerPhone" name="customerPhone" />
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="bookingForm.customerEmail" name="customerEmail" />
+
+      <label>Nationality:</label>
+      <input type="text" [(ngModel)]="bookingForm.nationality" name="nationality" />
+
+      <label>Notes:</label>
+      <textarea [(ngModel)]="bookingForm.notes" name="notes"></textarea>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</div>
