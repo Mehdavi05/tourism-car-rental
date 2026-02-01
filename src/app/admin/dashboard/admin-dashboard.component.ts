@@ -30,7 +30,7 @@ export class AdminDashboardComponent {
 
   logout() {
     // Remove user session or token
-    localStorage.removeItem('authToken'); // if you store JWT
+    sessionStorage.removeItem('authToken'); // remove auth token
     sessionStorage.clear(); // clear session storage
 
     // Redirect to login page

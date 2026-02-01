@@ -31,7 +31,7 @@ export class LoginComponent {
     // Admin login via API
     this.auth.login(this.email, this.password).subscribe({
       next: res => {
-        localStorage.setItem('token', res.token);
+        sessionStorage.setItem('authToken', res.token);
         this.router.navigate(['/admin']);
       },
       error: err => {

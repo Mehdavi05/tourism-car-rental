@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { authGuard } from './core/auth.guard';
+import { adminAuthGuard } from './core/adminAuthGuard';
 
 import { LoginComponent } from './auth/login.component';
 
@@ -18,19 +18,18 @@ import { AdminSettingsComponent } from './admin/settings/admin-settings.componen
 import { CustomerCarsComponent } from './customer/cars/customer-cars.component';
 import { DashboardComponent } from './customer/dashboard/dashboard.component';
 import { ContactComponent } from './customer/contact/contact.component';
-import { BookingComponent } from './customer/booking/booking.component'; 
-import { HomeComponent } from './customer/home/home.component'; 
+import { BookingComponent } from './customer/booking/booking.component';
+import { HomeComponent } from './customer/home/home.component';
 import { CarDetailComponent } from './customer/car-detail/car-detail.component';
 import { TourPackagesComponent } from './customer/tour-packages/tour-packages.component';
 
 export const routes: Routes = [
-
   { path: 'login', component: LoginComponent },
 
   {
     path: 'admin',
     component: AdminDashboardComponent,
-    canActivate: [authGuard],
+    canActivate: [adminAuthGuard],
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: AdminOverviewComponent },
@@ -39,8 +38,8 @@ export const routes: Routes = [
       { path: 'bookings', component: AdminBookingsComponent },
       { path: 'customers', component: AdminCustomersComponent },
       { path: 'reports', component: AdminReportsComponent },
-      { path: 'settings', component: AdminSettingsComponent }
-    ]
+      { path: 'settings', component: AdminSettingsComponent },
+    ],
   },
 
   {
@@ -53,10 +52,10 @@ export const routes: Routes = [
       { path: 'cars/:id', component: CarDetailComponent },
       { path: 'tours', component: TourPackagesComponent },
       { path: 'booking', component: BookingComponent },
-      { path: 'contact', component: ContactComponent }
-    ]
+      { path: 'contact', component: ContactComponent },
+    ],
   },
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/login' },
 ];
